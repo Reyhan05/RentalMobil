@@ -19,10 +19,8 @@ class CreateMobilTable extends Migration
             $table->foreign('id_merk')->references('id')->on('jenis_kelamin')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_mobil', 255);
             $table->string('plat_nomor', 8);
-            $table->string('warna', 25);
-            $table->string('tahun', 4);
             $table->string('harga_sewa', 50);
-            $table->string('keterangan', 11);
+            $table->string('keterangan', 255);
             $table->timestamps();
         });
     }

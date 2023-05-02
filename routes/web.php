@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataMerkController;
 use App\Http\Controllers\DataMobilController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,4 @@ Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
