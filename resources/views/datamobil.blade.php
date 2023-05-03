@@ -110,6 +110,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php 
+                        $no = 1;
+                        ?>
+                        @if (count($mobil) > 0)
+                        @foreach ($mobil as $car)
                         <tr>
                             <th>1</th>
                             <td>asda</td>
@@ -117,8 +122,12 @@
                             <td>@mdo</td>
                             <td>@mdo</td>
                             <td>@mdo</td>
-                            <td>@mdo</td>
+                            <td class="text-center">
+                                <a type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></a>
+                            </td>
                         </tr>
+                        @endif
+                        @endforeach
                     </tbody>
                 </table>
             </div>
