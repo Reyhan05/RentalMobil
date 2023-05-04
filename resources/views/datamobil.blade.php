@@ -97,7 +97,7 @@
 
             <!--Membuat table data mobil!-->
             <div class="table-responsive m-4">
-                <table class="table table-striped table-hover">
+                <table class="table table-bordered border-dark">
                     <thead>
                         <tr>
                             <th>No</th>
