@@ -25,6 +25,7 @@ class AddPhotoColumnTable extends Migration
      */
     public function down()
     {
-        dropColumn(['photo']);
+        // dropColumn(['photo']);
+        // Schema::dropColumn('photo');
     }
 }

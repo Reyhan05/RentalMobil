@@ -133,8 +133,8 @@
                                 <form action="{{ route('datamobil.destory', ['id' => $car->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></button>
-                                    
+                                    <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></button>                                    
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $merk->id }}" class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                                 </form>
                             </td>
                         </tr>
