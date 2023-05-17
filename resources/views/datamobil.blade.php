@@ -66,19 +66,12 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Warna</label>
-                                            <input type="text" name="warna" class="form-control"
-                                                placeholder="Masukan Warna Mobil" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
                                             <label>Tahun</label>
                                             <input type="number" name="tahun" class="form-control"
                                                 placeholder="Masukan Tahun Mobil" />
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Harga Sewa</label>
                                             <input type="number" name="harga_sewa" class="form-control"
@@ -133,6 +126,7 @@
                             @endforeach
                             <td>{{$car->nama_mobil}}</td>
                             <td>{{$car->plat_nomor}}</td>
+
                             <td>{{$car->harga_sewa}}</td>
                             <td>{{$car->keterangan}}</td>
                             <td class="text-center">
