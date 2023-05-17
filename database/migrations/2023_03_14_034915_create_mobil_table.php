@@ -16,7 +16,7 @@ class CreateMobilTable extends Migration
         Schema::create('mobil', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_merk')->unsigned();
-            $table->foreign('id_merk')->references('id')->on('jenis_kelamin')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_merk')->references('id')->on('merk')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_mobil', 255);
             $table->string('plat_nomor', 8);
             $table->string('harga_sewa', 50);

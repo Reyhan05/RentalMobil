@@ -35,10 +35,21 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Create Mobil</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form action="{{ route('datamobil')}}" enctype="multipart/form-data">
-                                @csrf
+                        <form action="{{ route('datamobil.store')}}" enctype="multipart/form-data" method="POST">
+                            @csrf
+                            <div class="modal-body">
                                 <div class="row">
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Nama Merek</label>
+                                            <select name="id_merk" class="form-select" aria-label="Default select example">
+                                            <option selected disabled>Pilih merk</option>
+                                            @foreach($merks as $merk)
+                                            <option value="{{ $merk->id}}">{{ $merk->nama_merk}}</option>
+                                            @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nama Mobil</label>
@@ -84,12 +95,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -97,11 +108,11 @@
 
             <!--Membuat table data mobil!-->
             <div class="table-responsive m-4">
-                <table class="table table-bordered border-dark">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Photo</th>
+                            <th>Nama Merek</th>
                             <th>Nama Mobil</th>
                             <th>Plat Nomor</th>
                             <th>Harga Sewa</th>
@@ -117,13 +128,20 @@
                         @foreach ($mobil as $car)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>@mdo</td>
+                            @foreach ($car->mobils as $merk_mobil)
+                            <td>{{ $merk_mobil->nama_merk }}</td>
+                            @endforeach
                             <td>{{$car->nama_mobil}}</td>
                             <td>{{$car->plat_nomor}}</td>
                             <td>{{$car->harga_sewa}}</td>
                             <td>{{$car->keterangan}}</td>
                             <td class="text-center">
-                                <a type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></a>
+                                <form action="{{ route('datamobil.destory', ['id' => $car->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></button>
+                                    
+                                </form>
                             </td>
                         </tr>
                         @endforeach
