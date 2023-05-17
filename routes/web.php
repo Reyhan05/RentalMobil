@@ -25,6 +25,9 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil');
+Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
+
+Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Auth::routes();
