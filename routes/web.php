@@ -24,10 +24,10 @@ Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard'
 
 Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil');
 Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
+Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk');
 
 Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
 
-Route::get('/profile', [ProfileController::class, 'index']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');

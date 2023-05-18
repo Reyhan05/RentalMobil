@@ -36,12 +36,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white  {{ Request::is('profile') ? 'bg-gradient-primary' : '' }}"
-                    href="/profile">
+                <a class="nav-link text-white  {{ Request::is('datamerk') ? 'bg-gradient-primary' : '' }}"
+                    href="/datamerk">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
+                        <i class='bx bxs-car-garage'></i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
+                    <span class="nav-link-text ms-1">Data Merek</span>
                 </a>
             </li>
             <li class="nav-item">
