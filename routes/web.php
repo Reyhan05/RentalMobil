@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DataMerkController;
 use App\Http\Controllers\DataMobilController;
 use App\Http\Controllers\ProfileController;
 
@@ -32,3 +31,4 @@ Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name(
 Route::get('/profile', [ProfileController::class, 'index']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');

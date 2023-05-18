@@ -131,7 +131,7 @@
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $car->id }}" class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
-                            <!-- Modal edit-->
+                        <!-- Modal edit-->
                         <div class="modal fade" id="modalEdit_{{ $car->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
@@ -141,8 +141,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
+                                    <form method="POST" action="{{ route('car.update', ['id' => $car->id]) }}">
                                     <div class="modal-body">
-                                    <form method="POST">
                                                     @csrf
                                                     @method('PUT')
                                                 <div class="row">
@@ -151,10 +151,9 @@
                                                             <label>Nama Merek</label>
                                                             <select name="id_merk" value="{{ $car->merk_id }}" class="form-select"
                                                                 aria-label="Default select example">
-                                                                <option value="{{ $car->id }}" selected disabled>Pilih merk</option>
+                                                                <option selected disabled>Pilih merk</option>
                                                                 @foreach($merks as $merk)
-                                                                <option>{{ $merk->nama_merk}}
-                                                                </option>
+                                                                    <option value="{{ $merk->id }}" {{ ( $merk->id == $car->id_merk ) ? 'selected' : '' }}> {{ $merk->nama_merk }} </option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -185,16 +184,17 @@
                                                             <div class="form-group">
                                                                 <label class="form-label">Keterangan</label>
                                                                 <textarea name="keterangan" rows="5"
-                                                                    class="form-control" value="{{ $car->keterangan }}"
-                                                                    placeholder="Masukan keterangan"></textarea>
+                                                                    class="form-control"
+                                                                    placeholder="Masukan keterangan">{{ $car->keterangan }}</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

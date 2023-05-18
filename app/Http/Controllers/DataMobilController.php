@@ -40,6 +40,24 @@ class DataMobilController extends Controller
         
     }
 
+    public function update(Request $request, $id)
+    {
+        // uptade data mobil menggunakan metode eloquent
+        $mobil = Mobil::find($id);
+        $mobil->id_merk = $request->id_merk;
+        $mobil->nama_mobil = $request->nama_mobil;
+        $mobil->plat_nomor = $request->plat_nomor;
+        $mobil->harga_sewa = $request->harga_sewa;
+        $mobil->keterangan = $request->keterangan;
+        $mobil->save();
+
+        if ($mobil){
+            return redirect('/datamobil')->with(['success' => 'Data Berhasil Diupdate']);
+        } else {
+            return redirect('/datamobil')->with(['error' => 'Data Gagal Diupdate']);
+        }
+    }
+
     public function destroy($id)
     {
         Mobil::find($id)->delete();
