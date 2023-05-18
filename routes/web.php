@@ -28,6 +28,7 @@ Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobi
 Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk');
 
 Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
+Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
