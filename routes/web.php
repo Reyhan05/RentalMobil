@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataMobilController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashbordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard');
 
 Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil');
 Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
