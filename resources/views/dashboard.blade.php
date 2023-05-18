@@ -31,7 +31,7 @@
               <i class='bx bxs-notepad opacity-10'></i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Data Pemesan</p>
+                <p class="text-sm mb-0 text-capitalize">Merek Mobil</p>
                 <h4 class="mb-0">2,300</h4>
               </div>
             </div>

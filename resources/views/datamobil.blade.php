@@ -94,7 +94,7 @@
 
             <!--Membuat table data mobil!-->
             <div class="table-responsive m-4">
-                <table class="table table-bordered">
+                <table class="styled-table table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
