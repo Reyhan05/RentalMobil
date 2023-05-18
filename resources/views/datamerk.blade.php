@@ -21,12 +21,10 @@
                 </div>
                 @endif
             </div>
-            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Create
             </button>
 
-            <!-- Modal Create -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -96,9 +94,7 @@
                     </div>
                 </div>
             </div>
-            <!-- End modal -->
 
-            <!--Membuat table data mobil!-->
             <div class="table-responsive m-4">
                 <table class="styled-table table-bordered">
                     <thead>
@@ -138,11 +134,78 @@
                                     class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
+                        @endforeach
+                        @endif
             </div>
+            <div class="modal fade" id="modalEdit_{{ $car->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form method="POST" action="{{ route('car.update', ['id' => $car->id]) }}">
+                                    <div class="modal-body">
+                                                    @csrf
+                                                    @method('PUT')
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Nama Merek</label>
+                                                            <select name="id_merk" value="{{ $car->merk_id }}" class="form-select"
+                                                                aria-label="Default select example">
+                                                                <option selected disabled>Pilih merk</option>
+                                                                @foreach($merks as $merk)
+                                                                    <option value="{{ $merk->id }}" {{ ( $merk->id == $car->id_merk ) ? 'selected' : '' }}> {{ $merk->nama_merk }} </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Nama Mobil</label>
+                                                            <input type="text" name="nama_mobil" value="{{ $car->nama_mobil }}" class="form-control"
+                                                                placeholder="Masukan Nama Mobil" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Plat Nomor</label>
+                                                            <input type="text" name="plat_nomor" value="{{ $car->plat_nomor }}" class="form-control"
+                                                                placeholder="Masukan Plat Nomor" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Harga Sewa</label>
+                                                            <input type="number" name="harga_sewa" value="{{ $car->harga_sewa }}" class="form-control"
+                                                                placeholder="Masukan Harga" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Keterangan</label>
+                                                                <textarea name="keterangan" rows="5"
+                                                                    class="form-control"
+                                                                    placeholder="Masukan keterangan">{{ $car->keterangan }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
         </div>
     </main>
     </div>
     @include('layouts.js')
 </body>
-
 </html>

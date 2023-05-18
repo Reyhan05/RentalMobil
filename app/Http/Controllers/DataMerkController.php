@@ -12,7 +12,7 @@ class DataMerkController extends Controller
     {
         $mobil = Mobil::with('mobils')->get();
         $merks = merk::all();
-        return view('datamerk');
+        return view('datamerk', compact('mobil', 'merks'));
     }
 
     public function create()
