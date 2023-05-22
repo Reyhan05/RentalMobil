@@ -9,9 +9,8 @@ class Mobil extends Model
 {
     protected $table = 'mobil';
 
-    public function mobils() {
-        return$this->belongsTo(merk::class, 'id' ,'id_merk');
-
+    public function mobil() {
+        return $this->belongsTo(merk::class, 'id' ,'id_merk');
 
     }
 }

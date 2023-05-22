@@ -11,7 +11,7 @@ class merk extends Model
     protected $table = 'merk';
 
     public function mobils() {
-        return $this->hasMany(obil::class, 'id_merk' ,'id');
+        return $this->hasMany(Mobil::class, 'id_merk' ,'id');
 
     }
 }
