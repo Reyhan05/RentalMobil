@@ -34,5 +34,5 @@ Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('d
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
-Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
+Route::put('/car/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
+Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');

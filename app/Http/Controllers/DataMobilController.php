@@ -47,7 +47,7 @@ class DataMobilController extends Controller
         $mobil->id_merk = $request->id_merk;
         $mobil->nama_mobil = $request->nama_mobil;
         $mobil->plat_nomor = $request->plat_nomor;
-        $mobil->harga_sewa = $request->harga_sewa;
+        $mobil->harga_sewa= $request->harga_sewa;
         $mobil->keterangan = $request->keterangan;
         $mobil->save();
 
