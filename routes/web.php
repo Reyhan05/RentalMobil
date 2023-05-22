@@ -21,18 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard');
-Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil');
-Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk');
+    Route::get('/dashboard', [DashbordController::class, 'admin'])->name('dashboard');
+    Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk');
 
-Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
-Route::post('/datamerk', [DataMerkController::class, 'store'])->name('datamerk.store');
+    Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
+    Route::post('/datamerk', [DataMerkController::class, 'store'])->name('datamerk.store');
 
+    Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
+    Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
 
-Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
-Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
+    Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
+    Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
-Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
