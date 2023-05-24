@@ -114,9 +114,7 @@
                         @foreach ($mobil as $car)
                         <tr>
                             <td>{{$no++}}</td>
-                            @foreach ($car->mobils as $merk_mobil)
-                            <td>{{ $merk_mobil->nama_merk }}</td>
-                            @endforeach
+                            <td>{{ $car->merk->nama_merk }}</td>
                             <td>{{$car->nama_mobil}}</td>
                             <td>{{$car->plat_nomor}}</td>
                             <td>{{$car->harga_sewa}}</td>

@@ -29,69 +29,35 @@
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                    <form action="{{ route('datamerk.store')}}" method="POST">
+                    @csrf
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('datamerk.store')}}" method="POST">
-                                @csrf
+                            
+                                
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Nama Merek</label>
-                                                <select name="id_merk" class="form-select"
-                                                    aria-label="Default select example">
-                                                    <option selected disabled>Pilih merk</option>
-                                                    @foreach($merks as $merk)
-                                                    <option value="{{ $merk->id}}">{{ $merk->nama_merk}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nama Mobil</label>
-                                                <input type="text" name="nama_mobil" class="form-control"
-                                                    placeholder="Masukan Nama Mobil" />
+                                                <label>Nama Merk</label>
+                                                <input type="text" name="nama_merk" class="form-control"
+                                                        placeholder="Masukan Nama Merk" />
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Plat Nomor</label>
-                                                <input type="text" name="plat_nomor" class="form-control"
-                                                    placeholder="Masukan Plat Nomor" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Harga Sewa</label>
-                                                <input type="number" name="harga_sewa" class="form-control"
-                                                    placeholder="Masukan Harga" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="form-label">Keterangan</label>
-                                                    <textarea name="keterangan" rows="5" class="form-control"
-                                                        placeholder="Masukan keterangan"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </form>
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
 
@@ -101,10 +67,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Merek</th>
-                            <th>Nama Mobil</th>
-                            <th>Plat Nomor</th>
-                            <th>Harga Sewa</th>
-                            <th>Keterangan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -112,32 +74,26 @@
                         <?php 
                         $no = 1;
                         ?>
-                        @if (count($mobil) > 0)
-                        @foreach ($mobil as $car)
+                        @if (count($merks) > 0)
+                        @foreach ($merks as $merk)
                         <tr>
                             <td>{{$no++}}</td>
-                            @foreach ($car->mobils as $merk_mobil)
-                            <td>{{ $merk_mobil->nama_merk }}</td>
-                            @endforeach
-                            <td>{{$car->nama_mobil}}</td>
-                            <td>{{$car->plat_nomor}}</td>
-                            <td>{{$car->harga_sewa}}</td>
-                            <td>{{$car->keterangan}}</td>
+                            <td>{{$merk->nama_merk}}</td>
                             <td class="text-center">
-                                <form action="{{ route('datamerk.destory', ['id' => $car->id]) }}" method="POST">
+                                <form action="{{ route('datamerk.destory', ['id' => $merk->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i
                                             class="bx bx-trash"></i></button>
                                 </form>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $car->id }}"
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $merk->id }}"
                                     class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
                         @endforeach
                         @endif
             </div>
-            <div class="modal fade" id="modalEdit_{{ $car->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -146,52 +102,16 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="{{ route('car.update', ['id' => $car->id]) }}">
+                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
                                     <div class="modal-body">
                                                     @csrf
                                                     @method('PUT')
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label>Nama Merek</label>
-                                                            <select name="id_merk" value="{{ $car->merk_id }}" class="form-select"
-                                                                aria-label="Default select example">
-                                                                <option selected disabled>Pilih merk</option>
-                                                                @foreach($merks as $merk)
-                                                                    <option value="{{ $merk->id }}" {{ ( $merk->id == $car->id_merk ) ? 'selected' : '' }}> {{ $merk->nama_merk }} </option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Nama Mobil</label>
-                                                            <input type="text" name="nama_mobil" value="{{ $car->nama_mobil }}" class="form-control"
-                                                                placeholder="Masukan Nama Mobil" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Plat Nomor</label>
-                                                            <input type="text" name="plat_nomor" value="{{ $car->plat_nomor }}" class="form-control"
-                                                                placeholder="Masukan Plat Nomor" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label>Harga Sewa</label>
-                                                            <input type="number" name="harga_sewa" value="{{ $car->harga_sewa }}" class="form-control"
-                                                                placeholder="Masukan Harga" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Keterangan</label>
-                                                                <textarea name="keterangan" rows="5"
-                                                                    class="form-control"
-                                                                    placeholder="Masukan keterangan">{{ $car->keterangan }}</textarea>
-                                                            </div>
+                                                            <label>Nama Merk</label>
+                                                            <input type="text" name="nama_merk" value="{{ $merk->nama_merk }}" class="form-control"
+                                                                placeholder="Masukan Nama Merk" />
                                                         </div>
                                                     </div>
                                                 </div>

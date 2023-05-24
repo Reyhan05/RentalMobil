@@ -23,7 +23,7 @@
   <style>
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 20px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -38,7 +38,7 @@
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 40px;
+    padding: 20px 20px;
 }
 
 .styled-table tbody tr {

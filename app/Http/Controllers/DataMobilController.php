@@ -11,7 +11,7 @@ class DataMobilController extends Controller
 {
     public function index()
     {
-        $mobil = Mobil::with('mobils')->get();
+        $mobil = Mobil::with('merk')->get();
         $merks = merk::all();
         return view('datamobil', compact('mobil', 'merks'));
     }
