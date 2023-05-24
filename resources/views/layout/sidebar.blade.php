@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('datamobil') ? 'bg-gradient-primary' : '' }}"
-                    href="{{ route('datamobil') }}">
+                    href="{{ route('datamobil.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="bx bxs-car opacity-10"></i>
                     </div>
