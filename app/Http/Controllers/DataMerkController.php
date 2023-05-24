@@ -44,5 +44,6 @@ class DataMerkController extends Controller
         merk::find($id)->delete();
 
         return redirect('/datamerk');
+        
     }
 }
