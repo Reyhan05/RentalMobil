@@ -38,7 +38,7 @@
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 40px;
+    padding: 20px 20px;
 }
 
 .styled-table tbody tr {

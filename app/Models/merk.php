@@ -10,7 +10,8 @@ class merk extends Model
     use HasFactory;
     protected $table = 'merk';
 
-    public function mobil() {
-        return$this->beloongsTo(mobil::class, 'id_merk' ,'id');
+    public function mobils() {
+        return $this->hasMany(Mobil::class, 'id_merk' ,'id');
+
     }
 }

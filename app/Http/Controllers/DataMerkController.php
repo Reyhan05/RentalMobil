@@ -10,9 +10,8 @@ class DataMerkController extends Controller
 {
     public function index()
     {
-        $mobil = Mobil::with('mobils')->get();
         $merks = merk::all();
-        return view('datamerk', compact('mobil', 'merks'));
+        return view('datamerk', compact('merks'));
     }
 
     public function create()
@@ -20,9 +19,13 @@ class DataMerkController extends Controller
         
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $merk = new merk;
+        $merk->nama_merk = $request->nama_merk;
+        $merk->save();
 
+        return redirect('/datamerk');
     }
     
     public function show()
@@ -38,8 +41,9 @@ class DataMerkController extends Controller
 
     public function destroy($id)
     {
-        Mobil::find($id)->delete();
+        merk::find($id)->delete();
 
         return redirect('/datamerk');
+        
     }
 }
