@@ -53,13 +53,6 @@ body {
     background-size: cover;
 }
 
-/* .model {
-    height: 560px;
-    position: absolute;
-    bottom: 60px;
-    left: 50%;
-} */
-
 .hidden {
     position: absolute;
     left: 0;
@@ -146,4 +139,11 @@ a.btn-auth:hover {
 
 }
 
-</style></head>
+.gradient-custom {
+background: #6a11cb;
+background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));    
+background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+</style>
+</head>
