@@ -22,21 +22,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-    // Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-    Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard');        
-
-    Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil.index');
-    Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk.index');
-
-    Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
-    Route::post('/datamerk', [DataMerkController::class, 'store'])->name('datamerk.store');
-
-    Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
-    Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
-
-    Route::put('/car/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
-    Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
-
-Auth::routes();
-
+    Route::group(['middleware' => ['can:isAdmin']], function () {
+        Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard');        
+    
+        Route::get('/datamobil', [DataMobilController::class, 'index'])->name('datamobil.index');
+        Route::get('/datamerk', [DataMerkController::class, 'index'])->name('datamerk.index');
+    
+        Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
+        Route::post('/datamerk', [DataMerkController::class, 'store'])->name('datamerk.store');
+    
+        Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
+        Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
+    
+        Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
+        Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
+    
+        Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
+    });

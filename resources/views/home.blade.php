@@ -1,23 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are penyewa!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <div class="container mx-auto px-4">
+    <h1>Rental Mobil</h1>
+  
+  </div>
 @endsection
