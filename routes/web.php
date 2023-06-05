@@ -39,3 +39,7 @@ Route::get('/', function () {
     
         Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
     });
+
+    Route::group(['middleware' => ['can:isPenyewa']], function () {
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+    });
