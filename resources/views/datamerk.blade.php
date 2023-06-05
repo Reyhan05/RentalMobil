@@ -90,40 +90,40 @@
                                     class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
+                            <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
+                                                    <div class="modal-body">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Nama Merk</label>
+                                                                            <input type="text" name="nama_merk" value="{{ $merk->nama_merk }}" class="form-control"
+                                                                                placeholder="Masukan Nama Merk" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </div>
                         @endforeach
                         @endif
             </div>
-            <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
-                                    <div class="modal-body">
-                                                    @csrf
-                                                    @method('PUT')
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Nama Merk</label>
-                                                            <input type="text" name="nama_merk" value="{{ $merk->nama_merk }}" class="form-control"
-                                                                placeholder="Masukan Nama Merk" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-        </div>
     </main>
     </div>
     @include('layouts.js')
