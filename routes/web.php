@@ -34,8 +34,8 @@ Route::get('/', function () {
         Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
         Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
     
-        Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destory');
-        Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destory');
+        Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destroy');
+        Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destroy');
     
         Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
     });

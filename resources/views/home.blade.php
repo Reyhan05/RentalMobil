@@ -3,6 +3,6 @@
 @section('content')
   <div class="container mx-auto px-4">
     <h1>Rental Mobil</h1>
-  
+      
   </div>
 @endsection

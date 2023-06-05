@@ -1,11 +1,14 @@
-<!--   Core JS Files   -->
-<script src="{{ asset('admin/templet/assets/js/core/popper.min.js') }}"></script>
+  <!--   Core JS Files   -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="{{ asset('admin/templet/assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('admin/templet/assets/js/core/bootstrap.min.js')}}"></script>
   <script src="{{ asset('admin/templet/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{ asset('admin/templet/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{ asset('admin/templet/assets/js/plugins/chartjs.min.js')}}"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>\
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -252,8 +255,7 @@
         },
       },
     });
-  </script>
-  <script>
+
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
       var options = {
@@ -261,6 +263,35 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+    
+function deleteConfirmation(formId) {
+  console.log(formId)
+   Swal.fire({
+       title: 'Konfirmasi',
+       text: 'Anda yakin ingin menghapus data ini?',
+       icon: 'warning',
+       showCancelButton: true,
+       confirmButtonText: 'Ya, hapus!',
+       cancelButtonText: 'Batal'
+   }).then((result) => {
+       if (result.isConfirmed) {
+           document.getElementById(formId).submit();
+       }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+   // Memperbarui semua tombol delete yang memiliki kelas deleteMobil
+   const deleteButtons = document.querySelectorAll('.deleteMobil');
+   deleteButtons.forEach((button) => {
+       button.addEventListener('click', function(event) {
+           event.preventDefault();
+           const formId = this.dataset.formId;
+           deleteConfirmation(formId);
+       });
+   });
+});
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
