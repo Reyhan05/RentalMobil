@@ -32,7 +32,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Merek Mobil</p>
-                <h4 class="mb-0">2,300</h4>
+                <h4 class="mb-0">{{ $mobil->count()}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">

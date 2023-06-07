@@ -29,32 +29,30 @@
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                    <form action="{{ route('datamerk.store')}}" method="POST">
-                    @csrf
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            
-                                
+                        <form action="{{ route('datamerk.store')}}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama Merk</label>
                                                 <input type="text" name="nama_merk" class="form-control"
-                                                        placeholder="Masukan Nama Merk" />
+                                                    placeholder="Masukan Nama Merk" />
                                             </div>
-                                         </div>
+                                        </div>
                                     </div>
                                 </div>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
                         </form>
                     </div>
 
@@ -80,52 +78,51 @@
                             <td>{{$no++}}</td>
                             <td>{{$merk->nama_merk}}</td>
                             <td class="text-center">
-                                <form action="{{ route('datamerk.destory', ['id' => $merk->id]) }}" method="POST">
+                                <form action="{{ route('datamerk.destroy', ['id' => $merk->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i
-                                            class="bx bx-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></button>
                                 </form>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $merk->id }}"
-                                    class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $merk->id }}" class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
-                            <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
+                        <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
+                                        <div class="modal-body">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Nama Merk</label>
+                                                        <input type="text" name="nama_merk"
+                                                            value="{{ $merk->nama_merk }}" class="form-control"
+                                                            placeholder="Masukan Nama Merk" />
                                                     </div>
-                                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
-                                                    <div class="modal-body">
-                                                                    @csrf
-                                                                    @method('PUT')
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label>Nama Merk</label>
-                                                                            <input type="text" name="nama_merk" value="{{ $merk->nama_merk }}" class="form-control"
-                                                                                placeholder="Masukan Nama Merk" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                                    </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        @endforeach
-                        @endif
             </div>
+            @endforeach
+            @endif
+        </div>
     </main>
     </div>
     @include('layouts.js')
 </body>
+
 </html>

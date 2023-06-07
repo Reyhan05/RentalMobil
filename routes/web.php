@@ -31,13 +31,11 @@ Route::get('/', function () {
         Route::post('/datamobil', [DataMobilController::class, 'store'])->name('datamobil.store');
         Route::post('/datamerk', [DataMerkController::class, 'store'])->name('datamerk.store');
     
-        Route::put('/update/success/{id}', [DataMobilController::class, 'update'])->name('car.update');
-        Route::put('/update/success/{id}', [DataMerkController::class, 'update'])->name('car.update');
+        Route::put('/update/mobil/success/{id}', [DataMobilController::class, 'update'])->name('mobil.update');
+        Route::put('/update/merk/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
     
         Route::delete('/datamobil/{id}', [DataMobilController::class, 'destroy'])->name('datamobil.destroy');
         Route::delete('/datamerk/{id}', [DataMerkController::class, 'destroy'])->name('datamerk.destroy');
-    
-        Route::put('/merk/update/success/{id}', [DataMerkController::class, 'update'])->name('merk.update');
     });
 
     Route::group(['middleware' => ['can:isPenyewa']], function () {

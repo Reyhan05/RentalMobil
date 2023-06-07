@@ -24,6 +24,8 @@ class DataMerkController extends Controller
         $merk = new merk;
         $merk->nama_merk = $request->nama_merk;
         $merk->save();
+        // $res = NULL;
+        // $res->success = false;
 
         return redirect('/datamerk');
     }
@@ -36,7 +38,7 @@ class DataMerkController extends Controller
     public function update($id, Request $request)
     {
         $merk = merk::find($id);
-        $merk->nama_merk = $request->nama_merk;
+        $merk->id_merk = $request->id_merk;
         $merk->save();
 
         return redirect('/datamerk');

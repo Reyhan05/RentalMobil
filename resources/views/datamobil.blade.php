@@ -158,7 +158,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="{{ route('car.update',  $car->id) }}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ route('mobil.update',  $car->id) }}" enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="{{ $car->id }}">
                                         <div class="modal-body">
                                             @csrf
                                             @method('PUT')
@@ -166,13 +167,14 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Nama Merek</label>
-                                                        <select name="id_merk" value="{{ $car->merk_id }}"
+                                                        <select name="id_merk" value="{{ $car->id_merk }}"
                                                             class="form-select" aria-label="Default select example">
                                                             <option selected disabled>Pilih merk</option>
                                                             @foreach($merks as $merk)
                                                             <option value="{{ $merk->id }}"
                                                                 {{ ( $merk->id == $car->id_merk ) ? 'selected' : '' }}>
-                                                                {{ $merk->nama_merk }} </option>
+                                                                {{ $merk->nama_merk }}
+                                                             </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
