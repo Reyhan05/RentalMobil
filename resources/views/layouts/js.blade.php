@@ -10,6 +10,28 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
+     $.ajaxSetup({
+            headers:
+            { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        });
+
+    $(document).ready(function(){
+        $('#signup-form').click(function() {
+          var url = $(this).attr('href');
+            Swal.fire({
+              icon: 'question',
+              title: 'Are you sure want to Sign Up ?',
+              showCancelButton: true,
+              confirmButtonText: 'OK',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                document.getElementById('signup-form').submit();
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+        })
+    })
+  });
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
@@ -292,7 +314,7 @@ window.addEventListener('DOMContentLoaded', function() {
        });
    });
 });
-  </script>
+</script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
