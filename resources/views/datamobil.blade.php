@@ -4,7 +4,7 @@
 
 <body class="g-sidenav-show  bg-gray-200">
     @include('layout.sidebar')
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" style="max-width: 80vw; margin-left: 20vw">
         <h1 class="text-center">Rental Mobil</h1>
         <div class="container-fluid py-4">
             <div class="col-md-12">
