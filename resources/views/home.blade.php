@@ -7,23 +7,7 @@
         @foreach ($mobil as $mbl)
         <div class="col">
             <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $mbl->nama_mobil }}</h5>
-                    <p class="card-text">{{ $mbl->merk->nama_merk }}</p>
-                    <small class="text-muted">Rp.{{ $mbl->harga_sewa }},00</small>
-                </div>
-
-                <div class="card-footer">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Sewa
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
+                <img src=" {{ $mbl->photo == null? asset('img/avatar.jpg') : asset('uploads/' . $mbl->photo) }} " class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $mbl->nama_mobil }}</h5>
                     <p class="card-text">{{ $mbl->merk->nama_merk }}</p>
