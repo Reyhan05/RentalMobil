@@ -29,13 +29,12 @@
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Masukan Merk</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                         <form action="{{ route('datamerk.store')}}" method="POST">
                             @csrf
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
                             <div class="modal-body">
                                 <div class="modal-body">
                                     <div class="row">
@@ -86,6 +85,7 @@
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $merk->id }}" class="btn btn-info btn-small"><i class="bx bxs-pen"></i></button>
                             </td>
                         </tr>
+
                         <div class="modal fade" id="modalEdit_{{ $merk->id }}" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -94,7 +94,8 @@
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="{{ route('merk.update', ['id' => $merk->id]) }}">
+                                    <form method="POST" action="{{ route('merk.update', $merk->id) }}">
+                                    <input type="hidden" name="id" value="{{ $merk->id }}">
                                         <div class="modal-body">
                                             @csrf
                                             @method('PUT')
