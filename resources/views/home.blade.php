@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-auto px-4">
 
-    <h1 class="text-center mb-4">Rental Mobil</h1>
+    <h1 class="text-center mb-4">Mobil Yang Tersedia</h1>
     <p class="lead text-center mb-4">Sewa mobil dengan mudah dan cepat</p>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         @foreach ($mobil as $mbl)
@@ -36,7 +36,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Data Penyewa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST">
+                <form action="{{ route('home.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">

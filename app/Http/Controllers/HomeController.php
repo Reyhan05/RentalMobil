@@ -28,4 +28,9 @@ class HomeController extends Controller
 
         return view('home', compact('mobil'));
     }
+
+    public function store()
+    {
+        return redirect('/home');
+    }
 }

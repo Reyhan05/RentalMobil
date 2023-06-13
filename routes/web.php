@@ -39,5 +39,6 @@ Route::get('/', function () {
     });
 
     Route::group(['middleware' => ['can:isPenyewa']], function () {
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+        Route::post('/home/sewa', [HomeController::class, 'store'])->name('home.store');
     });
