@@ -12,7 +12,8 @@
                 <img src="{{ $mbl->photo == null ? asset('img/avatar.jpg') : asset('uploads/' . $mbl->photo) }}"
                     class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $mbl->nama_mobil }}</h5>
+                    <h3 class="card-title">{{ $mbl->nama_mobil }}</h5>
+                    <h5 class="card-title">{{ $mbl->keterangan }}</h5>
                     <p class="card-text">{{ $mbl->merk->nama_merk }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Rp.{{ $mbl->harga_sewa }},00</h6>
                 </div>
