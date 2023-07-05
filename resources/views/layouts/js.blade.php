@@ -285,7 +285,6 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
-
     
 function deleteConfirmation(formId) {
   console.log(formId)
